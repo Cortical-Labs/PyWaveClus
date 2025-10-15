@@ -14,7 +14,7 @@ def load_spike_detection_config():
         return config['spike_detection']
 
 
-def detect_spikes(recording, recording_bp2, recording_bp4):
+def detect_spikes(recording, recording_bp2, recording_bp4, config=None):
     """Detects spikes from a given recording and all channels.
 
     Args:
@@ -31,7 +31,8 @@ def detect_spikes(recording, recording_bp2, recording_bp4):
         results: A dictionary where the keys are the channel ids, and the values are
                   another dictionary with the keys 'spikes', 'thresholds' and 'indexes'.
     """
-    config = load_spike_detection_config()
+    if config is None:
+        config = load_spike_detection_config()
     detect = config['detect_method']
     segment_duration = config['segment_duration'] * 60
     stdmin = config['std_min']
