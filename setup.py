@@ -12,7 +12,7 @@ setup(
         'spikeinterface',
         'numpy',
         'scipy',
-        'pywt',
+        'PyWavelets',
         'scikit-learn',
         'statsmodels',
         'matplotlib',
